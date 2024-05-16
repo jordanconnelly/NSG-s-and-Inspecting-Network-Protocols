@@ -34,7 +34,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 <img src="https://imgur.com/XSMGjGp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<img src="https://imgur.com/XSMGjGp.png"/>
+<img src="https://imgur.com/hbEpnNu.png"/>
 </p>
 <p>
 Set up two virtual machines within Microsoft Azure. One will use Windows 10 OS (VM1) and the other will use Ubuntu (VM2). Using remote desktop, log into VM1. Browse the internet for the protocol analyzer called Wireshark and download the original version. Install using it's default settings. You will not have to check any boxes during installation. After installation, type "Powershell" into the search bar on the lower left area of the screen. Right-click on Windows Powershell and run as administrator. Verify connectivity by perpetually pinging VM2's private IP address. Run Wireshark. Select "ethernet"; type "ICMP" in the search bar at the top of the window and press enter. Traffic between both VMs will post on Wireshark.
@@ -42,10 +42,10 @@ Set up two virtual machines within Microsoft Azure. One will use Windows 10 OS (
 <br />
 
 <p>
-<img src="https://github.com/chrisrraP/Network-Security-Groups-NSGs-and-Inspecting-Network-Protocols/blob/main/Network%20Security%20Groups.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/dd615lb.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<img src="https://github.com/chrisrraP/Network-Security-Groups-NSGs-and-Inspecting-Network-Protocols/blob/main/VM2%20Inbound%20Security.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/dd615lb.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <img src="https://github.com/chrisrraP/Network-Security-Groups-NSGs-and-Inspecting-Network-Protocols/blob/main/Ping%20to%20VM2%20Timed%20Out.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
