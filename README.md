@@ -80,6 +80,23 @@ Now all inbound ICMP traffic to VM2 is denied. In PowerShell this is denoted by 
 <h2>Observing SSH Traffic</h2>
 
 <p>
-Delete the Inbound rule for ICMP in Azure. In VM1, open Wireshark and filter for SSH traffic only. Open PowerShell and SSH into VM2 using it's private IP address (ssh username@ip address). Answer 'yes" to the question asked and type in the password for VM2. You are now in VM2's SSH. Type in different Ubuntu commands are observe the traffic in WireShark.
+Delete the Inbound rule for ICMP in Azure. In VM1, open Wireshark and filter for SSH traffic. Open PowerShell and SSH into VM2 using it's private IP address (ssh username@ip address). Answer 'yes" to the question asked and type in the password for VM2. You are now in VM2's SSH. Type in different Ubuntu commands are observe the traffic in Wireshark.
 <p>
 <img src="https://imgur.com/MiV6trP.png" height="40%" width="80%">
+<p></p>
+<h2>Observe DHCP Traffic</h2>
+
+<p>
+In VM1, open Wireshark and filter for DHCP traffic. Open PowerShell and enter "ipconfig /renew" to assign VM1 a new IP address. We can observe the DHCP traffic in Wireshark.
+<p>
+<img src="https://imgur.com/uG6BAfo.png" height="40%" width="80%">
+<p></p>
+<h2>Observe DNS Traffic</h2>
+
+<p>
+In Wireshark, filter for DNS traffic. In PowerShell, use "nslookup" to get IP addresses for different websites and observe the traffic in Wireshark.
+<img src="https://imgur.com/wfurGwe.png" height="40%" width="80%">
+<p></p>
+<h2>Observe DHCP Traffic</h2>
+
+<p>
