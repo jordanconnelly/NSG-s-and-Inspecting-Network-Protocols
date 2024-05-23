@@ -9,7 +9,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 
 <h2>Environments and Technologies Used</h2>
 
-- Microsoft Azure (Virtual Machines/Compute)
+- Microsoft Azure (Virtual Machines)
 - Remote Desktop
 - Various Command-Line Tools
 - Various Network Protocols (SSH, RDH, DNS, HTTP/S, ICMP)
@@ -28,56 +28,16 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Observe SSH Traffic  
 - Observe RDP Traffic
 
-<h2>Actions and Observations</h2>
+<h2>Setting Up Resources</h2>
 
 <p>
-<img src="https://imgur.com/XSMGjGp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+To start we will create a Resource Group in Microsoft Azure (RG1). Once created we will start building our first Virtual Machine (VM1). Place VM1 in RG1 and take note of the Region it is created in, we will need our second Virtual Machine (VM2) in the same Region. VM1 will be running Windows 10. Proceed to the "Networking" tab and allow VM1 to create a new Virtual Network and Subnet, I renamed the Virtual Network to "RG1-vnet". Click on "Review + create" to complete the VM1 setup.
+<p>
+<img src="https://imgur.com/3e1sKAg.png" height="20%" width="40%"> <img src="https://imgur.com/U3JrHy9.png" height="20%" width="40%">
+<p></p>
+Next, we will follow the same steps to create VM2 in the same Resource Group (RG1). This Virtual Machine will be running Ubuntu. Once on the "Networking" tab, place VM2 in the same Vnet (RG1-Vnet) and subnet as VM1.
+<p>
+<img src="https://imgur.com/OSiGDY3.png" height="20%" width="40%"> <img src="https://imgur.com/ZlMXuTg.png" height="20%" width="40%">
+<img src=".png">
 </p>
 <p>
-<img src="https://imgur.com/hbEpnNu.png"/>
-</p>
-<p>
-Set up two virtual machines within Microsoft Azure. One will use Windows 10 OS (VM1) and the other will use Ubuntu (VM2). Using remote desktop, log into VM1. Browse the internet for the protocol analyzer called Wireshark and download the original version. Install using it's default settings. You will not have to check any boxes during installation. After installation, type "Powershell" into the search bar on the lower left area of the screen. Right-click on Windows Powershell and run as administrator. Verify connectivity by perpetually pinging VM2's private IP address. Run Wireshark. Select "ethernet"; type "ICMP" in the search bar at the top of the window and press enter. Traffic between both VMs will post on Wireshark.
-</p>
-<br />
-
-<p>
-<img src="https://imgur.com/dd615lb.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<img src="https://imgur.com/dd615lb.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<img src="https://github.com/chrisrraP/Network-Security-Groups-NSGs-and-Inspecting-Network-Protocols/blob/main/Ping%20to%20VM2%20Timed%20Out.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Head back into the Azure portal, type "Network Security Group" into the search bar and select that option. There may be an instance where two groups were created for VM2. You will need to apply these steps to both groups. Select VM2nsg, select "inbound rules" and select "add". Toggle the protocol to "ICMP" and the "allow" action to "deny". The priority will be changed to "200" in order for it to be recognized before other inbound rules. We'll name it "DENY_PING_FROM_ANYWHERE". Click "add" and go back to VM1. Observe the ICMP traffic on wireshark and Powershell. It will have timed out. Switch back to Azure and edit the rule back to "allow". Go to VM1 to observe the requests being received again.
-</p>
-<br />
-
-<p>
-<img src="https://github.com/chrisrraP/Network-Security-Groups-NSGs-and-Inspecting-Network-Protocols/blob/main/SSH%20Traffic.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-In the Wireshark window, press the stop button. Type "ssh" in the search bar and hit enter. Continue without saving. In Powershell, type in "ssh" and press enter. Next, type in your VM2 username @ VM2 (ex: user@VM2). You will be prompted to enter your password. Enter your VM2 password and you will see a large amount of traffic in Wireshark. After observing, type "exit" in powershell to revert back to VM1.
-</p>
-<br />
-
-<p>
-<img src="https://github.com/chrisrraP/Network-Security-Groups-NSGs-and-Inspecting-Network-Protocols/blob/main/DHCP%20Traffic.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<img src="https://github.com/chrisrraP/Network-Security-Groups-NSGs-and-Inspecting-Network-Protocols/blob/main/DHCP%20Renew%20Traffic.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-In Wireshark, filter DHCP traffic by typing in "DHCP" in the search bar and press enter. Continue without saving. In Powershell, use command "nslookup" followed by a space and any website of your choice. Observe all the traffic created.
-</p>
-<br />
-
-<p>
-<img src="https://github.com/chrisrraP/Network-Security-Groups-NSGs-and-Inspecting-Network-Protocols/blob/main/Desktop%20Traffic.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lastly, to observe the Remote Desktop Protocol (RDP), you will type "tcp.port==3389" into the Wireshark search bar. This will display the real-time traffic that occurs between both computers.
-</p>
-<br />
