@@ -97,6 +97,9 @@ In VM1, open Wireshark and filter for DHCP traffic. Open PowerShell and enter "i
 In Wireshark, filter for DNS traffic. In PowerShell, use "nslookup" to get IP addresses for different websites and observe the traffic in Wireshark.
 <img src="https://imgur.com/wfurGwe.png" height="40%" width="80%">
 <p></p>
-<h2>Observe DHCP Traffic</h2>
+<h2>Observe RDP Traffic</h2>
 
 <p>
+In Wireshark, filter for RDP traffic (tcp.port == 3389). There is non-stop spamming of traffic because we are actively using the Remote Desktop Protocol. Everything we do on our own computer or VM1 will show up in this traffic.
+<p>
+<img src="https://imgur.com/V8MAn7F.png" height="40%" width="80%">
