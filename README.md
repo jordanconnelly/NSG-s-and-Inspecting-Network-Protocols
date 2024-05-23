@@ -64,3 +64,14 @@ Open Powershell again and attempt to ping Google by typing "ping www.google.com 
 <p>
 <img src="https://imgur.com/ioaaeAZ.png" height="20%" width="40%"> <img src="https://imgur.com/fNlPJYK.png" height="20%" width="40%">
 <p></p>
+Next we will initiate a perpetual ping between VM1 and VM2. In PowerShell type in "ping 10.0.0.5 -t", -t signifies a perpetual ping. We can also view this perpetual ping in Wireshark.
+<p>
+<img src="https://imgur.com/xGJ08HL.png" height="20%" width="40%"> <img src="https://imgur.com/iqlKUom.png" height="20%" width="40%">
+<p></p>
+In Azure we will open the Network Security Groups and disable inbound ICMP traffic for VM2. Type "Network Security Groups" in the search bar and select "VM2-nsg", select Settings>Inbound Security Rules on the left menu, click on Add Rule. Change the Protocol to ICMP, the Priority to any number smaller than 300 (to give this rule the highest priority), and rename the rule.
+<p>
+<img src="https://imgur.com/LXgJCyt.png" height="40%" width="80%">
+<p></p>
+Now all inbound ICMP traffic to VM2 is denied. In PowerShell this is denoted by "Request timed out" and in Wireshark by only seeing requests with no replies.
+<p>
+<img src="https://imgur.com/rTiCeaI.png" height="20%" width="40%">  <img src="https://imgur.com/owvcyqF.png" height="20%" width="40%">
