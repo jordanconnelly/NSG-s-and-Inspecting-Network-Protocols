@@ -75,3 +75,11 @@ In Azure we will open the Network Security Groups and disable inbound ICMP traff
 Now all inbound ICMP traffic to VM2 is denied. In PowerShell this is denoted by "Request timed out" and in Wireshark by only seeing requests with no replies.
 <p>
 <img src="https://imgur.com/rTiCeaI.png" height="20%" width="40%">  <img src="https://imgur.com/owvcyqF.png" height="20%" width="40%">
+<p></p>
+
+<h2>Observing SSH Traffic</h2>
+
+<p>
+Delete the Inbound rule for ICMP in Azure. In VM1, open Wireshark and filter for SSH traffic only. Open PowerShell and SSH into VM2 using it's private IP address (ssh username@ip address). Answer 'yes" to the question asked and type in the password for VM2. You are now in VM2's SSH. Type in different Ubuntu commands are observe the traffic in WireShark.
+<p>
+<img src="https://imgur.com/MiV6trP.png" height="40%" width="80%">
