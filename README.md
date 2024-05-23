@@ -41,3 +41,26 @@ Next, we will follow the same steps to create VM2 in the same Resource Group (RG
 <img src=".png">
 </p>
 <p>
+<h2>Observing ICMP Traffic</h2>
+
+<p>
+Open Microsoft Remote Desktop from the Start menu and type in VM1's public IP address. Use the username and password used to create VM1 to log in.
+<p>
+<img src="https://imgur.com/xHkVimc.png" height="40%" width="80%">
+<p></p>
+Inside VM1 we will now install Wireshark by searching "download Wireshark" on Google. Proceed through the setup instructions using the standard configurations. Open Wireshark from the Start menu.
+<p>
+<img src="https://imgur.com/eu8FolK.png" height="20%" width="40%"> <img src="https://imgur.com/drDIZlP.png" height="20%" width="40%">
+<p></p>
+Click the Run icon at the top left of the page (the shark fin icon) to observe all traffic occurring in VM1. At the top of the page type "icmp" in the search bar to filter the results to only see ICMP traffic. Currently, there is no ICMP traffic in VM1.
+<p>
+<img src="https://imgur.com/KW78nMM.png" height="20%" width="40%"> <img src="https://imgur.com/TNiPBmm.png" height="20%" width="40%">
+<p></p>
+Now we will attempt to Ping VM2 from VM1. Obtain VM2's private IP address(10.0.0.5) from Azure. Open PowerShell from the Start menu in VM1 and type in "ping 10.0.0.5". The pings are successful because VM1 and VM2 are in the same Virtual Network. Open Wireshark again and observe the ICMP traffic (ping and reply) between the Virtual Machines.
+<p>
+<img src="https://imgur.com/lKCOkiV.png" height="20%" width="40%"> <img src="https://imgur.com/hlbA0Yf.png" height="20%" width="40%">
+<p></p>
+Open Powershell again and attempt to ping Google by typing "ping www.google.com -4", the -4 in the command line forces Powershell to use Google's IPv4. Open Wireshark again to observe the ICMP traffic between VM1 and Google.
+<p>
+<img src="https://imgur.com/ioaaeAZ.png" height="20%" width="40%"> <img src="https://imgur.com/fNlPJYK.png" height="20%" width="40%">
+<p></p>
